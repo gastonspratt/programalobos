@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)file:///C:/Users/gasto/Downloads/Programa_Lobos_Web.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa Lobos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Programa Lobos_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --bg: #10161C;
+    --bg-alt: #161E26;
+    --card: #1B2530;
+    --ink: #EDE7DA;
+    --ink-dim: #9BA7AF;
+    --line: #2B3641;
+    --moon: #D9A94C;
+    --clay: #C06A4C;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--moon);
+  }
+  h1, h2, h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    margin: 0;
+  }
+  a{ color: inherit; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: 6rem 6vw 5rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner{
+    max-width: 780px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero h1{
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    line-height: 0.98;
+    margin: 0.6rem 0 1.4rem;
+  }
+  .hero p.lede{
+    font-size: 1.15rem;
+    color: var(--ink-dim);
+    max-width: 560px;
+  }
+  .howl{
+    position: absolute;
+    right: -6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42vw;
+    max-width: 560px;
+    opacity: 0.9;
+    z-index: 1;
+  }
+  @media (max-width: 800px){ .howl{ display:none; } }
+
+  /* ---------- STAT BAR ---------- */
+  .stats{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .stat{
+    padding: 2.2rem 2rem;
+    border-left: 1px solid var(--line);
+  }
+  .stat:first-child{ border-left: none; }
+  .stat .num{
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    color: var(--moon);
+    display:block;
+  }
+  .stat .lbl{
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+  @media (max-width: 700px){
+    .stats{ grid-template-columns: 1fr; }
+    .stat{ border-left:none; border-top: 1px solid var(--line); }
+    .stat:first-child{ border-top:none; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section.block{
+    padding: 4.5rem 6vw;
+    max-width: 920px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+  section.block h2{
+    font-size: 1.9rem;
+    margin: 0.5rem 0 1.4rem;
+  }
+  section.block p{
+    color: var(--ink-dim);
+    max-width: 700px;
+  }
+  section.block p + p{ margin-top: 1rem; }
+
+  /* ---------- PATH DIAGRAM (signature element) ---------- */
+  .path{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .path-step{
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 1.2rem;
+    position: relative;
+    padding-bottom: 2.2rem;
+  }
+  .path-step:last-child{ padding-bottom: 0; }
+  .path-dot{
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--moon);
+    margin-top: 6px;
+    position: relative;
+    z-index: 2;
+  }
+  .path-step.alt .path-dot{ background: var(--clay); }
+  .path-step:not(:last-child)::before{
+    content:'';
+    position:absolute;
+    left: 5px;
+    top: 18px;
+    bottom: -4px;
+    width: 2px;
+    background: var(--line);
+  }
+  .path-step h3{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+  .path-step p{ margin-top: 0.35rem; font-size: 0.96rem; }
+
+  /* ---------- CARDS ---------- */
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    margin-top: 2rem;
+    border: 1px solid var(--line);
+  }
+  .card{
+    background: var(--card);
+    padding: 1.6rem 1.7rem;
+  }
+  .card h3{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--moon);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+  .card p{ color: var(--ink-dim); font-size: 0.95rem; margin: 0; }
+  @media (max-width: 700px){ .cards{ grid-template-columns: 1fr; } }
+
+  /* ---------- IMPACT ---------- */
+  .impact{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+  .impact div{
+    background: var(--bg-alt);
+    padding: 1.8rem;
+  }
+  .impact .eyebrow{ margin-bottom: 0.5rem; display:block; }
+  .impact p{ margin:0; color: var(--ink-dim); font-size: 0.95rem; }
+  @media (max-width: 700px){ .impact{ grid-template-columns: 1fr; } }
+
+  footer{
+    padding: 3rem 6vw 4rem;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  footer .eyebrow{ display:block; margin-bottom: 0.8rem; }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <svg class="howl" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="200" cy="200" r="150" stroke="#2B3641" stroke-width="1"></circle>
+    <circle cx="200" cy="200" r="110" stroke="#2B3641" stroke-width="1"></circle>
+    <path d="M200 90 L206 106 L200 100 L194 106 Z" fill="#D9A94C" opacity="0.85"></path>
+    <g stroke="#9BA7AF" stroke-width="1.4" fill="none" stroke-linecap="round">
+      <path d="M160 260 q10 -34 30 -40 q6 -14 20 -16 q14 -8 28 2 q16 2 20 18 q14 8 10 26 q4 16 -10 22 q-6 12 -22 10 q-12 10 -26 2 q-16 4 -26 -8 q-14 -2 -24 -16 Z"></path>
+      <path d="M182 224 q4 -8 10 -6"></path>
+      <path d="M212 214 l4 -10 4 10"></path>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <span class="eyebrow">Prevención y Convivencia — Propuesta preliminar</span>
+    <h1>Programa<br>Lobos</h1>
+    <p style="font-family:&#39;Fraunces&#39;, serif; font-style:italic; font-size:1.3rem; color:var(--moon); margin: -0.6rem 0 1.2rem;">Nadie está solo en la manada.</p>
+    <p class="lede">Una línea de orientación y una red de pares para hombres que atraviesan una crisis de pareja — antes de que se convierta en una urgencia.</p>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <span class="num">11,8</span>
+    <span class="lbl">suicidios cada 100.000 hab. — la tasa más alta de la historia del país (OPC / Min. Salud)</span>
+  </div>
+  <div class="stat">
+    <span class="num">0</span>
+    <span class="lbl">redes de contención municipales equivalentes a Punto Mujer para varones, hoy</span>
+  </div>
+  <div class="stat">
+    <span class="num">2</span>
+    <span class="lbl">problemas que un mismo canal de escucha puede ayudar a prevenir: femicidio y suicidio</span>
+  </div>
+</div>
+
+<section class="block">
+  <span class="eyebrow">Problema</span>
+  <h2>No hay a quién recurrir antes de que la crisis escale</h2>
+  <p>Cuando un hombre atraviesa una crisis de pareja —una separación, pero también una pelea fuerte o la incertidumbre de no saber si la relación se sostiene— muchas veces no sabe a quién recurrir. Ir al psicólogo supone, para muchos, admitir que "tienen un problema psicológico", y esa barrera hace que bastantes prefieran no ir aunque lo necesiten.</p>
+  <p>Hoy no existe un espacio intermedio: alguien con quien hablar sin que eso implique reconocerse con un diagnóstico ni comprometerse a un tratamiento. En los casos más extremos, esta falta de contención deja al hombre sin ningún canal. La Argentina atraviesa la tasa de suicidios más alta de su historia (11,8 cada 100.000 habitantes, según el Observatorio de Política Criminal y el Ministerio de Salud), superando por primera vez a otras muertes violentas, con fuerte predominio masculino. A diferencia de lo que existe para mujeres (Línea 144, Punto Mujer), no hay una red equivalente para varones.</p>
+</section>
+
+<section class="block">
+  <span class="eyebrow">Propuesta — primera etapa</span>
+  <h2>El recorrido de una consulta</h2>
+  <p>Un primer paso acotado y testeable, sin necesidad de estructura o presupuesto propio.</p>
+
+  <div class="path">
+    <div class="path-step">
+      <div class="path-dot"></div>
+      <div>
+        <h3>Línea de orientación para crisis de pareja</h3>
+        <p>Abierta a distintos grados de urgencia: desde una pelea fuerte hasta una separación en curso, no solo emergencias extremas. Atención inicial desde el propio centro de monitoreo / guardia local, aprovechando la estructura ya existente.</p>
+      </div>
+    </div>
+    <div class="path-step">
+      <div class="path-dot"></div>
+      <div>
+        <h3>Primer contacto desde la experiencia de otro hombre</h3>
+        <p>No desde un diagnóstico. El objetivo es bajar la barrera de "admitir un problema psicológico" para poder hablarlo con alguien.</p>
+      </div>
+    </div>
+    <div class="path-step alt">
+      <div class="path-dot"></div>
+      <div>
+        <h3>Protocolo simple de derivación</h3>
+        <p>Para lo que exceda ese primer contacto: orientación psicológica, alojamiento de emergencia si hace falta, orientación legal. Si se detectan indicios de violencia hacia la pareja o expareja, derivación inmediata a abordaje profesional especializado — el programa no reemplaza ese tratamiento.</p>
+      </div>
+    </div>
+    <div class="path-step">
+      <div class="path-dot"></div>
+      <div>
+        <h3>Período de prueba de unos meses</h3>
+        <p>Para medir demanda real antes de pedir estructura o presupuesto propio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <span class="eyebrow">Por qué ahora</span>
+  <h2>Un mismo canal, dos alertas tempranas</h2>
+  <p>La necesidad surgió de la experiencia concreta de trabajar en el centro de monitoreo. No se trata de restar nada a lo que ya existe para mujeres, sino de sumar un canal que hoy no está cubierto.</p>
+
+  <div class="impact">
+    <div>
+      <span class="eyebrow">Detecta violencia</span>
+      <p>Deriva a protección y puede contribuir a prevenir un femicidio.</p>
+    </div>
+    <div>
+      <span class="eyebrow">Detecta angustia severa</span>
+      <p>Deriva a salud mental y puede contribuir a prevenir un suicidio.</p>
+    </div>
+  </div>
+
+  <p style="margin-top:2rem;">La Asociación Argentina de Salud Mental advirtió recientemente sobre la gravedad de esta situación y reclamó políticas públicas inmediatas de prevención, con presupuesto y trabajo intersectorial. Este programa es una respuesta concreta y acotada a nivel local a ese llamado.</p>
+</section>
+
+<section class="block" style="border-bottom:none;">
+  <span class="eyebrow">Segunda etapa</span>
+  <h2>Apoyo entre pares</h2>
+  <p>Una vez instalada la línea de guardia, sumar un grupo chico de "pares": hombres que ya atravesaron una crisis similar y pueden acompañar la primera charla desde la experiencia vivida, no desde un rol profesional. Esto reduce la barrera de entrada, sobre todo en varones.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Capacitación básica</h3>
+      <p>En escucha activa y primeros auxilios psicológicos — cursos cortos, ya disponibles en Cruz Roja o ministerios de salud provinciales.</p>
+    </div>
+    <div class="card">
+      <h3>Límites claros</h3>
+      <p>El par acompaña y escucha, no reemplaza al profesional. Ante señales de alarma —incluida cualquier indicio de violencia— derivación inmediata a un especialista.</p>
+    </div>
+    <div class="card">
+      <h3>Coordinación institucional</h3>
+      <p>Desde Prevención y Convivencia, con supervisión y espacio de contención para los propios pares.</p>
+    </div>
+    <div class="card">
+      <h3>Etapa posterior</h3>
+      <p>Se activa una vez validada la demanda de la línea de guardia, no antes.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="eyebrow">Programa Lobos</span>
+  Propuesta preliminar para su evaluación por Prevención y Convivencia.
+</footer>
+
+
+
+</body></html>
