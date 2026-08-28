@@ -74,12 +74,31 @@
     padding: 6rem 2rem 4rem;
     background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
     border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: url('logo_lobos.jpg') center/contain no-repeat;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-content{
+    position: relative;
+    z-index: 1;
   }
   .hero-logo{
-    width: 200px;
-    max-width: 70%;
+    width: 140px;
     margin-bottom: 2rem;
-    filter: drop-shadow(0 8px 32px rgba(0,0,0,0.5));
+    opacity: 0.9;
+    mix-blend-mode: lighten;
   }
   .hero-eyebrow{
     font-family: 'IBM Plex Mono', monospace;
@@ -107,6 +126,7 @@
     max-width: 600px;
     font-size: 1.1rem;
     line-height: 1.7;
+    margin: 0 auto;
   }
   .hero-municipio{
     margin-top: 2rem;
@@ -282,22 +302,81 @@
   }
   @media (max-width: 600px){ .cards{ grid-template-columns: 1fr; } }
   
-  .contact-section{
-    background: var(--bg-alt);
-    text-align: center;
-  }
-  .contact-box{
+  .contact-form{
     background: var(--card);
     padding: 2rem;
     border-radius: 8px;
     margin-top: 2rem;
   }
-  .contact-box h3{
-    margin-top: 0;
-    color: var(--accent-warm);
+  .form-group{
+    margin-bottom: 1.5rem;
+  }
+  .form-group label{
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select{
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus{
+    outline: none;
+    border-color: var(--accent);
+  }
+  .form-group textarea{
+    min-height: 120px;
+    resize: vertical;
+  }
+  .form-note{
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+    margin-top: 0.5rem;
+  }
+  .submit-btn{
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .submit-btn:hover{
+    background: var(--accent-warm);
+  }
+  
+  .contact-section{
+    background: var(--bg-alt);
+    text-align: center;
+  }
+  .contact-info{
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
   }
   .contact-method{
-    margin: 1.5rem 0;
+    margin: 1rem 0;
   }
   .contact-method .label{
     font-family: 'IBM Plex Mono', monospace;
@@ -308,37 +387,13 @@
     margin-bottom: 0.3rem;
   }
   .contact-method .value{
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--ink);
-  }
-  .cta-button{
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 1rem 2.5rem;
-    background: var(--accent);
-    color: var(--bg);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.25s ease;
-  }
-  .cta-button:hover{
-    background: var(--accent-warm);
-    transform: translateY(-2px);
   }
   footer{
     padding: 3rem 2rem;
     text-align: center;
     border-top: 1px solid var(--line);
-  }
-  .footer-logo{
-    width: 80px;
-    opacity: 0.6;
-    margin-bottom: 1rem;
   }
   footer p{
     color: var(--ink-dim);
@@ -367,14 +422,16 @@
 </nav>
 
 <section class="hero">
-  <img src="logo_lobos.jpg" alt="Programa Lobos" class="hero-logo">
-  <span class="hero-eyebrow">General Cabrera, Córdoba</span>
-  <h1>Programa Lobos</h1>
-  <p class="hero-tagline">"Nadie está solo en la manada"</p>
-  <p>Un espacio donde hombres que atraviesan crisis personales — separaciones, violencia familiar, aislamiento — encuentran apoyo de otro hombre que ya pasó por algo similar. Sin diagnósticos, sin burocracia, sin stigma.</p>
-  <div class="hero-municipio">
-    Iniciativa Municipal de Prevención<br>
-    Área de Prevención y Convivencia | Centro de Monitoreo
+  <div class="hero-content">
+    <img src="logo_lobos.jpg" alt="Programa Lobos" class="hero-logo">
+    <span class="hero-eyebrow">General Cabrera, Córdoba</span>
+    <h1>Programa Lobos</h1>
+    <p class="hero-tagline">"Nadie está solo en la manada"</p>
+    <p>Un espacio donde hombres que atraviesan crisis personales — separaciones, violencia familiar, aislamiento — encuentran apoyo de otro hombre que ya pasó por algo similar. Sin diagnósticos, sin burocracia, sin estigma.</p>
+    <div class="hero-municipio">
+      Iniciativa Municipal de Prevención<br>
+      Área de Prevención y Convivencia | Centro de Monitoreo
+    </div>
   </div>
 </section>
 
@@ -435,22 +492,22 @@
     <div class="step">
       <div class="step-number">1</div>
       <div class="step-content">
-        <h4>Ingreso al Centro de Monitoreo</h4>
-        <p>El caso llega por llamado, WhatsApp o derivación interna. Es recepcionado por el personal del Centro.</p>
+        <h4>Completás el formulario</h4>
+        <p>Entrás a esta web y completás el formulario de contacto. Contás brevemente qué te pasa.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-number">2</div>
       <div class="step-content">
-        <h4>Primera Escucha</h4>
-        <p>El referente del programa realiza contacto inicial. Sin burocracia, sin diagnóstico: solo escucha.</p>
+        <h4>Te contactamos</h4>
+        <p>El referente del programa te escribe o llama. Sin burocracia, sin diagnóstico: solo escucha.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-number">3</div>
       <div class="step-content">
-        <h4>Encuentro de Pares</h4>
-        <p>Se coordina encuentro con un "par de apoyo" capacitado: café, caminata, llamada. Lo que prefiera la persona.</p>
+        <h4>Encuentro de pares</h4>
+        <p>Coordinamos un encuentro con un "par de apoyo": café, caminata, llamada. Lo que prefieras.</p>
       </div>
     </div>
     <div class="step">
@@ -487,25 +544,64 @@
 <section id="contacto" class="contact-section">
   <span class="hero-eyebrow">Contacto</span>
   <h2>¿Necesitás Hablar?</h2>
-  <p>Si estás atravesando una crisis personal, una separación, o sentís que te estás aislando, escribinos. Un par te va a responder.</p>
-  <div class="contact-box">
-    <h3>Centro de Monitoreo Municipal</h3>
+  <p>Completá el formulario. Un par del Programa Lobos te va a contactar. Sin costo, sin compromiso, sin burocracia.</p>
+  
+  <form class="contact-form" action="#" method="POST">
+    <div class="form-group">
+      <label for="nombre">Nombre (puede ser seudónimo)</label>
+      <input type="text" id="nombre" name="nombre" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="contacto">Email o teléfono</label>
+      <input type="text" id="contacto" name="contacto" required>
+      <p class="form-note">Solo para que podamos contactarte. No se comparte con nadie.</p>
+    </div>
+    
+    <div class="form-group">
+      <label for="edad">Rango de edad</label>
+      <select id="edad" name="edad">
+        <option value="">Seleccionar...</option>
+        <option value="18-25">18-25 años</option>
+        <option value="26-35">26-35 años</option>
+        <option value="36-45">36-45 años</option>
+        <option value="46-55">46-55 años</option>
+        <option value="56+">56 años o más</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="situacion">¿Qué te está pasando?</label>
+      <textarea id="situacion" name="situacion" placeholder="Contanos brevemente tu situación: separación, crisis personal, aislamiento, violencia familiar... lo que quieras compartir."></textarea>
+      <p class="form-note">No hay respuesta correcta. Escribí lo que sientas.</p>
+    </div>
+    
+    <div class="form-group">
+      <label for="urgencia">¿Cómo definirías tu situación?</label>
+      <select id="urgencia" name="urgencia">
+        <option value="">Seleccionar...</option>
+        <option value="pre-crisis">Necesito hablar con alguien (prevención)</option>
+        <option value="crisis">Estoy pasando un momento difícil</option>
+        <option value="urgente">Necesito ayuda urgente</option>
+      </select>
+    </div>
+    
+    <button type="submit" class="submit-btn">Enviar y solicitar contacto</button>
+  </form>
+  
+  <div class="contact-info">
     <div class="contact-method">
-      <div class="label">WhatsApp</div>
-      <div class="value">[Número a definir]</div>
+      <div class="label">Centro de Monitoreo Municipal</div>
+      <div class="value">General Cabrera, Córdoba</div>
     </div>
     <div class="contact-method">
-      <div class="label">Email</div>
-      <div class="value">programalobos@generalcabrera.gob.ar</div>
-    </div>
-    <div class="contact-method">
-      <div class="label">Horario de Atención</div>
+      <div class="label">Horario de respuesta</div>
       <div class="value">Lunes a Viernes, 8:00 a 16:00</div>
     </div>
-    <a href="#" class="cta-button">Contactar Ahora</a>
   </div>
+  
   <div class="quote-block" style="margin-top: 2rem;">
-    <p>"Si estás en riesgo inmediato o tenés pensamientos suicidas concretos, llamá al 107 o al 135. Nosotros somos el paso anterior, no la emergencia."</p>
+    <p>"Si estás en riesgo inmediato o tenés pensamientos suicidas concretos, llamá al <strong>107</strong> o al <strong>135</strong>. Nosotros somos el paso anterior, no la emergencia."</p>
   </div>
 </section>
 
