@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)file:///C:/Users/gasto/Downloads/Programa_Lobos_Web.html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programa Lobos</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./Programa Lobos_files/css2" rel="stylesheet">
+<link rel="preconnect" href="[https://fonts.googleapis.com/](https://fonts.googleapis.com/)">
+<link href="[https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap](https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap)" rel="stylesheet">
 <style>
   :root{
     --bg: #10161C;
@@ -46,9 +46,11 @@
     padding: 6rem 6vw 5rem;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
+    text-align: center;
   }
   .hero-inner{
     max-width: 780px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
   }
@@ -61,18 +63,13 @@
     font-size: 1.15rem;
     color: var(--ink-dim);
     max-width: 560px;
+    margin: 0 auto;
   }
-  .howl{
-    position: absolute;
-    right: -6%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42vw;
-    max-width: 560px;
-    opacity: 0.9;
-    z-index: 1;
+  .logo-img{
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
   }
-  @media (max-width: 800px){ .howl{ display:none; } }
 
   /* ---------- STAT BAR ---------- */
   .stats{
@@ -119,7 +116,7 @@
   }
   section.block p + p{ margin-top: 1rem; }
 
-  /* ---------- PATH DIAGRAM (signature element) ---------- */
+  /* ---------- PATH DIAGRAM ---------- */
   .path{
     margin-top: 2.5rem;
     display: flex;
@@ -215,20 +212,11 @@
 <body>
 
 <section class="hero">
-  <svg class="howl" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="200" cy="200" r="150" stroke="#2B3641" stroke-width="1"></circle>
-    <circle cx="200" cy="200" r="110" stroke="#2B3641" stroke-width="1"></circle>
-    <path d="M200 90 L206 106 L200 100 L194 106 Z" fill="#D9A94C" opacity="0.85"></path>
-    <g stroke="#9BA7AF" stroke-width="1.4" fill="none" stroke-linecap="round">
-      <path d="M160 260 q10 -34 30 -40 q6 -14 20 -16 q14 -8 28 2 q16 2 20 18 q14 8 10 26 q4 16 -10 22 q-6 12 -22 10 q-12 10 -26 2 q-16 4 -26 -8 q-14 -2 -24 -16 Z"></path>
-      <path d="M182 224 q4 -8 10 -6"></path>
-      <path d="M212 214 l4 -10 4 10"></path>
-    </g>
-  </svg>
   <div class="hero-inner">
+    <img src="logo_lobos.png" alt="Logotipo Programa Lobos" class="logo-img">
     <span class="eyebrow">Prevención y Convivencia — Propuesta preliminar</span>
     <h1>Programa<br>Lobos</h1>
-    <p style="font-family:&#39;Fraunces&#39;, serif; font-style:italic; font-size:1.3rem; color:var(--moon); margin: -0.6rem 0 1.2rem;">Nadie está solo en la manada.</p>
+    <p style="font-family:'Fraunces', serif; font-style:italic; font-size:1.3rem; color:var(--moon); margin: -0.6rem 0 1.2rem;">Nadie está solo en la manada.</p>
     <p class="lede">Una línea de orientación y una red de pares para hombres que atraviesan una crisis de pareja — antes de que se convierta en una urgencia.</p>
   </div>
 </section>
@@ -253,6 +241,12 @@
   <h2>No hay a quién recurrir antes de que la crisis escale</h2>
   <p>Cuando un hombre atraviesa una crisis de pareja —una separación, pero también una pelea fuerte o la incertidumbre de no saber si la relación se sostiene— muchas veces no sabe a quién recurrir. Ir al psicólogo supone, para muchos, admitir que "tienen un problema psicológico", y esa barrera hace que bastantes prefieran no ir aunque lo necesiten.</p>
   <p>Hoy no existe un espacio intermedio: alguien con quien hablar sin que eso implique reconocerse con un diagnóstico ni comprometerse a un tratamiento. En los casos más extremos, esta falta de contención deja al hombre sin ningún canal. La Argentina atraviesa la tasa de suicidios más alta de su historia (11,8 cada 100.000 habitantes, según el Observatorio de Política Criminal y el Ministerio de Salud), superando por primera vez a otras muertes violentas, con fuerte predominio masculino. A diferencia de lo que existe para mujeres (Línea 144, Punto Mujer), no hay una red equivalente para varones.</p>
+</section>
+
+<section class="block">
+  <span class="eyebrow">Testimonio</span>
+  <h2>Testimonio de un par</h2>
+  <p>"Vengo atravesando una separación que fue muy difícil y dolorosa. Ya estoy mejor y creo que estoy en condiciones de ayudar a gente que pasé a... a hombres que pasen la misma situación. Y no quiero que nadie pase por lo que yo pasé".</p>
 </section>
 
 <section class="block">
@@ -314,7 +308,7 @@
 <section class="block" style="border-bottom:none;">
   <span class="eyebrow">Segunda etapa</span>
   <h2>Apoyo entre pares</h2>
-  <p>Una vez instalada la línea de guardia, sumar un grupo chico de "pares": hombres que ya atravesaron una crisis similar y pueden acompañar la primera charla desde la experiencia vivida, no desde un rol profesional. Esto reduce la barrera de entrada, sobre todo en varones.</p>
+  <p>Una vez instalada la línea de guardia, sumar un grupo chico de "pares": hombres que ya atravesaron una crisis similar y pueden acompanhar la primera charla desde la experiencia vivida, no desde un rol profesional. Esto reduce la barrera de entrada, sobre todo en varones.</p>
 
   <div class="cards">
     <div class="card">
@@ -323,7 +317,7 @@
     </div>
     <div class="card">
       <h3>Límites claros</h3>
-      <p>El par acompaña y escucha, no reemplaza al profesional. Ante señales de alarma —incluida cualquier indicio de violencia— derivación inmediata a un especialista.</p>
+      <p>El par acompanha y escucha, no reemplaza al profesional. Ante señales de alarma —incluida cualquier indicio de violencia— derivación inmediata a un especialista.</p>
     </div>
     <div class="card">
       <h3>Coordinación institucional</h3>
@@ -341,6 +335,5 @@
   Propuesta preliminar para su evaluación por Prevención y Convivencia.
 </footer>
 
-
-
-</body></html>
+</body>
+</html>
