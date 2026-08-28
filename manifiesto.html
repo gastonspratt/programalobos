@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifiesto | Programa Lobos</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;600&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0f14;
+    --bg-alt: #111820;
+    --card: #1a2330;
+    --ink: #e8e4dc;
+    --ink-dim: #8a95a3;
+    --line: #2a3542;
+    --accent: #4a9b8c;
+    --accent-warm: #c9a86c;
+    --urgent: #8b4a5a;
+  }
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.8;
+    color: var(--ink);
+    background: var(--bg);
+    font-weight: 300;
+  }
+  
+  .header{
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .header h1{
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .header-subtitle{
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--accent-warm);
+    margin-bottom: 2rem;
+  }
+  .header-quote{
+    max-width: 600px;
+    font-size: 1.1rem;
+    color: var(--ink-dim);
+    font-style: italic;
+  }
+  .header-quote cite{
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-size: 0.8rem;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--ink-dim);
+  }
+  
+  .section{
+    padding: 5rem 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-title{
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .section-number{
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-dim);
+    margin-bottom: 0.5rem;
+  }
+  
+  .section p{
+    margin-bottom: 1.5rem;
+    color: var(--ink-dim);
+    text-align: justify;
+  }
+  .section p:first-of-type::first-letter{
+    font-family: 'Fraunces', serif;
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    margin-top: 0.2rem;
+    color: var(--accent);
+  }
+  
+  .pull-quote{
+    margin: 3rem 0;
+    padding: 2rem;
+    border-left: 2px solid var(--accent);
+    background: var(--bg-alt);
+  }
+  .pull-quote p{
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--ink);
+    margin: 0;
+    text-align: left;
+  }
+  
+  .pillars{
+    margin: 3rem 0;
+  }
+  .pillar{
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .pillar:last-child{
+    border-bottom: none;
+  }
+  .pillar h3{
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--accent-warm);
+    margin-bottom: 0.8rem;
+  }
+  .pillar .latin{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .pillar p{
+    margin: 0;
+    text-align: left;
+  }
+  
+  .we-are-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .we-are-column h4{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .we-are-column.somos h4{ color: var(--accent); }
+  .we-are-column.no-somos h4{ color: var(--urgent); }
+  .we-are-column ul{
+    list-style: none;
+    padding: 0;
+  }
+  .we-are-column li{
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+    position: relative;
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+  }
+  .we-are-column li::before{
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .we-are-column.no-somos li::before{
+    color: var(--urgent);
+  }
+  @media (max-width: 600px){
+    .we-are-grid{ grid-template-columns: 1fr; }
+  }
+  
+  .story-box{
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 3rem 0;
+  }
+  .story-box h4{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent-warm);
+    margin-bottom: 1rem;
+  }
+  .story-box p{
+    font-style: italic;
+    text-align: left;
+    margin: 0;
+  }
+  
+  .cta-section{
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--bg-alt);
+  }
+  .cta-button{
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+  }
+  .cta-button:hover{
+    background: var(--accent-warm);
+  }
+  
+  .footer{
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  .footer p{
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+  }
+  .footer .tagline{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--accent-warm);
+    margin-top: 0.5rem;
+  }
+  
+  .back-link{
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--ink-dim);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+  }
+  .back-link:hover{
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="back-link">← Volver al Programa</a>
+  <span class="header-eyebrow">Manifiesto</span>
+  <h1>Programa Lobos</h1>
+  <p class="header-subtitle">Nadie está solo en la manada</p>
+  <p class="header-quote">
+    "No nos perturba lo que nos sucede, sino nuestra opinión sobre lo que nos sucede."
+    <cite>— Epicteto, Enchiridion</cite>
+  </p>
+</header>
+
+<!-- ORIGEN -->
+<section class="section">
+  <span class="section-number">I</span>
+  <h2 class="section-title">Origen</h2>
+  
+  <p>Este programa nace de una experiencia. Un hombre de General Cabrera, después de diez años de relación, con dos hijas pequeñas y diagnosticado con Parkinson, atravesó una separación que lo dejó sin red. Sin familia, sin casa, sin los afectos cotidianos que daban sentido a su vida. Fue a la comisaría buscando ayuda. Buscó contención profesional. Encontró puertas, burocracia, diagnósticos que no servían.</p>
+  
+  <p>No fue una psicóloga quien lo ayudó. Fueron hombres. Compañeros de trabajo, conocidos, desconocidos. Alguien que había pasado por algo similar y simplemente escuchó. Sin juzgar, sin etiquetar, sin pedir informes.</p>
+  
+  <div class="story-box">
+    <h4>Testimonio del Fundador</h4>
+    <p>"No estoy acá para contar quién tuvo la culpa. Eso no importa. Lo que importa es que estuve al borde, y me salvó un par. No un profesional, no un familiar. Un tipo que me dijo: 'Yo también'. Eso es lo que queremos replicar. Que ningún hombre llegue a donde llegué yo sin tener a quién llamar."</p>
+  </div>
+  
+  <p>De esa experiencia nace el Programa Lobos. No como venganza. No como respuesta a nadie. Como prevención. Como red. Como la certeza de que otro hombre que atraviesa una crisis necesita, antes que nada, saber que no está solo.</p>
+</section>
+
+<!-- FILOSOFIA -->
+<section class="section">
+  <span class="section-number">II</span>
+  <h2 class="section-title">Filosofía</h2>
+  
+  <p>El Programa Lobos se sustenta en la filosofía estoica, no como doctrina académica, sino como herramienta práctica para atravesar la adversidad. Los estoicos enseñaron que no controlamos lo que nos sucede, pero sí controlamos cómo respondemos. Que la virtud es el único bien verdadero. Que la comunidad — la manada — es nuestra salvación contra el aislamiento.</p>
+  
+  <div class="pillars">
+    <div class="pillar">
+      <div class="latin">Dichotomía de Control</div>
+      <h3>Entre lo que depende de nosotros y lo que no</h3>
+      <p>No elegimos la separación, la enfermedad, la pérdida del trabajo. Eso no depende de nosotros. Pero depende de nosotros cómo respondemos, si mantenemos la dignidad, si buscamos ayuda, si elegimos la virtud sobre la desesperación. Enseñamos a distinguir: ¿Esto lo controlo yo, o solo mi reacción ante ello?</p>
+    </div>
+    
+    <div class="pillar">
+      <div class="latin">Amor Fati</div>
+      <h3>Amar lo que es</h3>
+      <p>No significa resignarse, significa aceptar la realidad para poder transformarla. Un hombre que niega su situación — "esto no puede estar pasándome", "esto es injusto" — se paraliza. Un hombre que acepta lo que es, puede preguntarse: "¿Y ahora qué hago?" El amor fati es combustible, no rendición.</p>
+    </div>
+    
+    <div class="pillar">
+      <div class="latin">Virtus</div>
+      <h3>La virtud como único bien</h3>
+      <p>En la crisis, es fácil "mandarse cagadas": violencia, autodestrucción, abandono de responsabilidades. La virtud estoica — prudencia, justicia, fortaleza, templanza — es nuestro norte. No ser "buenito", ser íntegro. Hacer lo correcto incluso cuando nadie mira, especialmente cuando estamos heridos.</p>
+    </div>
+    
+    <div class="pillar">
+      <div class="latin">Cosmopolitismo</div>
+      <h3>Somos ciudadanos del mundo, y de la manada</h3>
+      <p>Nadie está solo en la manada. El estoicismo enseña que somos parte de un todo, que el aislamiento es ilusorio, que debemos cuidarnos unos a otros. El Programa Lobos es esa comunidad: hombres que se reconocen, se sostienen, se devuelven la dignidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE SOMOS -->
+<section class="section">
+  <span class="section-number">III</span>
+  <h2 class="section-title">Lo Que Somos / Lo Que No Somos</h2>
+  
+  <div class="we-are-grid">
+    <div class="we-are-column somos">
+      <h4>Lo Que Somos</h4>
+      <ul>
+        <li>Una iniciativa política en el sentido cívico: actuamos en el espacio público para el bien común</li>
+        <li>Un espacio de apoyo entre hombres, reconociendo que la experiencia masculina de la crisis tiene particularidades</li>
+        <li>Una red de prevención: intervenimos antes de la crisis aguda</li>
+        <li>Un programa basado en la filosofía estoica como herramienta práctica</li>
+        <li>Un espacio de escucha sin diagnósticos, sin etiquetas, sin burocracia</li>
+        <li>Un puente hacia servicios profesionales cuando se necesitan</li>
+      </ul>
+    </div>
+    <div class="we-are-column no-somos">
+      <h4>Lo Que No Somos</h4>
+      <ul>
+        <li>Un partido político ni una facción ideológica. No somos de izquierda ni de derecha. Trabajamos con quien gobierne, siempre que sea para el bien común</li>
+        <li>Una organización religiosa. No adherimos a ninguna confesión</li>
+        <li>Un movimiento anti-mujeres ni una reacción al feminismo. Reconocemos que la violencia de género contra las mujeres es una problemática grave y distinta</li>
+        <li>Un espacio machista. No celebramos la "masculinidad tóxica", no justificamos violencia, no culpamos a las mujeres de nuestras crisis</li>
+        <li>Un aguantadero de resentidos. El que busca venganza contra su ex, el que quiere conspirar contra las mujeres, no encuentra lugar acá</li>
+        <li>Un servicio de emergencia o guardia psiquiátrica. Somos prevención, no crisis</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="pull-quote">
+    <p>"No competimos con el feminismo. Simplemente atendemos otra problemática: el aislamiento masculino y el suicidio. Ambas son graves. Ambas merecen atención. No es uno contra otro."</p>
+  </div>
+</section>
+
+<!-- COMPROMISO -->
+<section class="section">
+  <span class="section-number">IV</span>
+  <h2 class="section-title">Nuestro Compromiso</h2>
+  
+  <p>Como pares de apoyo del Programa Lobos, nos comprometemos a:</p>
+  
+  <p><strong>Escuchar sin juzgar.</strong> No sabemos lo que le pasó al otro, ni quién tuvo la culpa. No nos interesa. Nos interesa que esté acá, ahora, y que necesita contención.</p>
+  
+  <p><strong>No dar consejos no pedidos.</strong> No sabemos qué le conviene al otro. Solo él sabe. Ofrecemos nuestra experiencia si la quiere, pero no imponemos.</p>
+  
+  <p><strong>Mantener la confidencialidad.</strong> Lo que se dice en la manada, queda en la manada.</p>
+  
+  <p><strong>Derivar cuando corresponde.</strong> Si el caso requiere atención profesional, no competimos. Acompañamos a buscarla.</p>
+  
+  <p><strong>No usar el espacio para ventilar odio.</strong> Un hombre que solo quiere descargar contra su ex, que busca validación para su resentimiento, no está listo para el programa. Lo escuchamos, pero le hacemos ver que acá buscamos salir adelante, no quedarnos en la queja.</p>
+  
+  <p><strong>Practicar lo que predicamos.</strong> No podemos ofrecer virtud si no la cultivamos. El par de apoyo también necesita su propio sostén, su propia manada.</p>
+</section>
+
+<!-- CIERRE -->
+<section class="section" style="border-bottom: none;">
+  <span class="section-number">V</span>
+  <h2 class="section-title">La Invitación</h2>
+  
+  <p>Si estás atravesando una crisis, si sentís que te estás aislando, si pensás que no tenés a quién llamar: escribinos. No tenés que saber filosofía, no tenés que ser "estoico". Solo tenés que estar dispuesto a hablar, y a escuchar.</p>
+  
+  <p>Si ya atravesaste una crisis similar y querés ayudar a otro a salir: capacitate como par de apoyo. La experiencia vivida es el mejor diploma.</p>
+  
+  <div class="pull-quote">
+    <p>"La ferocidad del lobo es su fuerza. La ferocidad de la manada es su supervivencia. Pero la verdadera virtud está en saber cuándo mostrar los dientes y cuándo tender la pata."</p>
+  </div>
+  
+  <p style="text-align: center; margin-top: 3rem;">Nadie está solo en la manada.</p>
+</section>
+
+<div class="cta-section">
+  <a href="index.html#contacto" class="cta-button">Contactar al Programa</a>
+</div>
+
+<footer class="footer">
+  <p>Manifiesto del Programa Lobos</p>
+  <p class="tagline">General Cabrera, Córdoba | 2025</p>
+</footer>
+
+</body>
+</html>
