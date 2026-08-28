@@ -74,31 +74,11 @@
     padding: 6rem 2rem 4rem;
     background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
     border-bottom: 1px solid var(--line);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    background: url('logo_lobos.jpg') center/contain no-repeat;
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .hero-content{
-    position: relative;
-    z-index: 1;
   }
   .hero-logo{
-    width: 140px;
+    width: 180px;
     margin-bottom: 2rem;
-    opacity: 0.9;
-    mix-blend-mode: lighten;
+    opacity: 0.85;
   }
   .hero-eyebrow{
     font-family: 'IBM Plex Mono', monospace;
@@ -159,6 +139,14 @@
     color: var(--ink-dim);
     margin-bottom: 1rem;
     line-height: 1.75;
+  }
+  ul{
+    margin-left: 1.5rem;
+    color: var(--ink-dim);
+  }
+  ul li{
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
   }
   .stats{
     display: grid;
@@ -302,11 +290,38 @@
   }
   @media (max-width: 600px){ .cards{ grid-template-columns: 1fr; } }
   
+  .comparison{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    margin: 2rem 0;
+  }
+  .comparison-box{
+    background: var(--card);
+    padding: 1.5rem;
+  }
+  .comparison-box h4{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+  }
+  .comparison-box.solo h4{ color: #8B4A5A; }
+  .comparison-box.con-apoyo h4{ color: var(--accent); }
+  .comparison-box p{
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 600px){ .comparison{ grid-template-columns: 1fr; } }
+  
   .contact-form{
     background: var(--card);
     padding: 2rem;
     border-radius: 8px;
     margin-top: 2rem;
+    text-align: left;
   }
   .form-group{
     margin-bottom: 1.5rem;
@@ -422,28 +437,37 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-content">
-    <img src="logo_lobos.jpg" alt="Programa Lobos" class="hero-logo">
-    <span class="hero-eyebrow">General Cabrera, Córdoba</span>
-    <h1>Programa Lobos</h1>
-    <p class="hero-tagline">"Nadie está solo en la manada"</p>
-    <p>Un espacio donde hombres que atraviesan crisis personales — separaciones, violencia familiar, aislamiento — encuentran apoyo de otro hombre que ya pasó por algo similar. Sin diagnósticos, sin burocracia, sin estigma.</p>
-    <div class="hero-municipio">
-      Iniciativa Municipal de Prevención<br>
-      Área de Prevención y Convivencia | Centro de Monitoreo
-    </div>
+  <img src="logo_lobos.jpg" alt="Programa Lobos" class="hero-logo">
+  <span class="hero-eyebrow">General Cabrera, Córdoba</span>
+  <h1>Programa Lobos</h1>
+  <p class="hero-tagline">"Nadie está solo en la manada"</p>
+  <p>Un espacio donde hombres que atraviesan crisis personales — separaciones, violencia familiar, aislamiento — encuentran apoyo de otro hombre que ya pasó por algo similar. Sin diagnósticos, sin burocracia, sin estigma.</p>
+  <div class="hero-municipio">
+    Iniciativa Municipal de Prevención<br>
+    Área de Prevención y Convivencia | Centro de Monitoreo
   </div>
 </section>
 
 <section id="el-programa">
   <span class="hero-eyebrow">Contexto</span>
   <h2>Una Emergencia Silenciosa</h2>
+  
   <p>La Asociación Argentina de Salud Mental acaba de declarar la situación de suicidio en Argentina como <strong>emergencia sanitaria</strong>. La tasa de 11,8 suicidios cada 100.000 habitantes es la más alta de la historia.</p>
+  
   <div class="quote-block">
     <p>"La Argentina registra una tasa de 11,8 suicidios cada 100.000 habitantes, la más alta de su historia, configurando una situación de gravedad sanitaria y social."</p>
     <cite>— Asociación Argentina de Salud Mental, Agosto 2025</cite>
   </div>
-  <p>En General Cabrera, desde el <strong>Centro de Monitoreo Municipal</strong> observamos regularmente intentos de suicidio y denuncias por violencia familiar donde los hombres quedan atrapados en el aislamiento, sin saber a dónde recurrir.</p>
+  
+  <p>En General Cabrera, desde el <strong>Centro de Monitoreo Municipal</strong> observamos regularmente:</p>
+  <ul>
+    <li>Intentos de suicidio</li>
+    <li>Denuncias por violencia familiar</li>
+    <li>Situaciones de crisis masculina que requieren contención</li>
+  </ul>
+  
+  <p>Estos casos frecuentemente <strong>no acceden a los servicios tradicionales</strong> de salud mental por estigma, burocracia o falta de empatía con la experiencia masculina de la crisis.</p>
+  
   <div class="stats">
     <div class="stat">
       <span class="stat-number">~80%</span>
@@ -458,12 +482,36 @@
       <span class="stat-label">programas de apoyo de par a par</span>
     </div>
   </div>
+  
+  <h3>El Camino al Aislamiento</h3>
+  
+  <div class="comparison">
+    <div class="comparison-box solo">
+      <h4>Sin apoyo de par</h4>
+      <p>Aislamiento progresivo. Acumulación de angustia. Idas a la comisaría. Denuncias. Internaciones psiquiátricas forzadas. Pérdida de contacto con hijos. Pensamientos suicidas.</p>
+    </div>
+    <div class="comparison-box con-apoyo">
+      <h4>Con contención temprana</h4>
+      <p>Alguien que escucha sin juzgar. Validación de la situación. Contención emocional. Derivación a profesionales si es necesario. Prevención del desborde. Reconstrucción gradual.</p>
+    </div>
+  </div>
+  
+  <h3>La Brecha</h3>
+  <p>Los servicios tradicionales de salud mental existen, pero muchos hombres no acceden por:</p>
+  <ul>
+    <li>Estigma asociado a la "debilidad" de pedir ayuda</li>
+    <li>Burocracia de los servicios institucionales</li>
+    <li>Sensación de que los profesionales no comprenden la experiencia masculina de la crisis</li>
+    <li>Falta de redes de contención durante separaciones de pareja</li>
+  </ul>
 </section>
 
 <section>
   <span class="hero-eyebrow">La Propuesta</span>
   <h2>Apoyo de Par a Par</h2>
+  
   <p>El Programa Lobos es una <strong>red de apoyo de hombre a hombre</strong>. No es terapia profesional, no es una guardia de emergencia. Es un espacio previo: alguien que escucha, que entiende porque ya pasó por algo similar, y que puede acompañar antes de que la crisis se desborde.</p>
+  
   <div class="cards">
     <div class="card">
       <h4>Escucha Sin Etiquetas</h4>
@@ -487,7 +535,9 @@
 <section id="como-funciona">
   <span class="hero-eyebrow">Implementación</span>
   <h2>Cómo Funciona</h2>
+  
   <p>El Programa Lobos se integra al <strong>Centro de Monitoreo Municipal</strong>. No requiere infraestructura nueva ni presupuesto adicional.</p>
+  
   <div class="process-steps">
     <div class="step">
       <div class="step-number">1</div>
@@ -518,13 +568,15 @@
       </div>
     </div>
   </div>
+  
   <h3>Costo del Programa</h3>
-  <p><strong>$0 en infraestructura y personal.</strong> Se utiliza el Centro de Monitoreo existente y se coordina con recursos municipales disponibles.</p>
+  <p><strong>$0 en infraestructura y personal.</strong> Se utiliza el Centro de Monitoreo existente y se coordina con recursos municipales disponibles. Posibles costos mínimos opcionales: capacitación de pares ($50.000-$100.000) y difusión ($30.000-$50.000).</p>
 </section>
 
 <section id="equipo">
   <span class="hero-eyebrow">Quienes Somos</span>
   <h2>Equipo Municipal</h2>
+  
   <div class="team-grid">
     <div class="team-member">
       <h4>Yanina Palacios</h4>
@@ -537,6 +589,7 @@
       <p>Centro de Monitoreo Municipal<br>Primer contacto y coordinación</p>
     </div>
   </div>
+  
   <h3>Pares de Apoyo</h3>
   <p>Hombres de la comunidad que atravesaron crisis similares, están estabilizados y reciben capacitación básica en escucha activa. Actúan de forma voluntaria.</p>
 </section>
