@@ -3,211 +3,519 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Programa Lobos</title>
-<link rel="preconnect" href="[https://fonts.googleapis.com/](https://fonts.googleapis.com/)">
-<link href="[https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap](https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap)" rel="stylesheet">
+<title>Programa Lobos | General Cabrera</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #10161C;
-    --bg-alt: #161E26;
-    --card: #1B2530;
-    --ink: #EDE7DA;
-    --ink-dim: #9BA7AF;
-    --line: #2B3641;
-    --moon: #D9A94C;
-    --clay: #C06A4C;
+    --bg: #0D1218;
+    --bg-alt: #141B24;
+    --card: #1A2330;
+    --ink: #E8E4DC;
+    --ink-dim: #8A95A3;
+    --line: #2A3542;
+    --accent: #4A9B8C;
+    --accent-warm: #C9A86C;
   }
-  *{ box-sizing: border-box; }
+  *{ box-sizing: border-box; margin: 0; padding: 0; }
   html{ scroll-behavior: smooth; }
   body{
-    margin:0;
-    background: var(--bg);
-    color: var(--ink);
     font-family: 'IBM Plex Sans', sans-serif;
     line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
   }
-  .eyebrow{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--moon);
+  nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(13, 18, 24, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    z-index: 1000;
+    padding: 1rem 2rem;
   }
-  h1, h2, h3{
+  .nav-content{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo{
     font-family: 'Fraunces', serif;
-    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent-warm);
+    text-decoration: none;
+  }
+  .nav-links{
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links a{
+    color: var(--ink-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover{ color: var(--accent); }
+  @media (max-width: 700px){ .nav-links{ display: none; } }
+  
+  .hero{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-logo{
+    width: 200px;
+    max-width: 70%;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 8px 32px rgba(0,0,0,0.5));
+  }
+  .hero-eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .hero h1{
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero-tagline{
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--accent-warm);
+    margin-bottom: 1.5rem;
+  }
+  .hero p{
+    color: var(--ink-dim);
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  .hero-municipio{
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  section{
+    padding: 5rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--line);
+  }
+  section h2{
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  section h3{
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin: 2rem 0 1rem;
+  }
+  section p{
+    color: var(--ink-dim);
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+  .stats{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    margin: 2rem 0;
+  }
+  .stat{
+    background: var(--bg-alt);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .stat-number{
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    color: var(--accent);
+    display: block;
+  }
+  .stat-label{
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 600px){ .stats{ grid-template-columns: 1fr; } }
+  
+  .quote-block{
+    background: var(--bg-alt);
+    border-left: 3px solid #8B4A5A;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+  }
+  .quote-block p{
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
     margin: 0;
   }
-  a{ color: inherit; }
+  .quote-block cite{
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--ink-dim);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .team-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .team-member{
+    background: var(--card);
+    padding: 1.5rem;
+    border-radius: 6px;
+  }
+  .team-member h4{
+    color: var(--accent-warm);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .team-member .role{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-dim);
+    margin-bottom: 0.8rem;
+  }
+  .team-member p{
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  @media (max-width: 600px){ .team-grid{ grid-template-columns: 1fr; } }
+  
+  .process-steps{ margin: 2rem 0; }
+  .step{
+    display: flex;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .step:not(:last-child)::after{
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    width: 2px;
+    height: calc(100% + 1rem);
+    background: var(--line);
+  }
+  .step-number{
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    flex-shrink: 0;
+    z-index: 2;
+  }
+  .step-content{
+    margin-left: 1rem;
+    padding-top: 0.3rem;
+  }
+  .step-content h4{
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .step-content p{
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    margin: 2rem 0;
+  }
+  .card{
+    background: var(--card);
+    padding: 1.5rem;
+  }
+  .card h4{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .card p{
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 600px){ .cards{ grid-template-columns: 1fr; } }
+  
+  .contact-section{
+    background: var(--bg-alt);
+    text-align: center;
+  }
+  .contact-box{
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  }
+  .contact-box h3{
+    margin-top: 0;
+    color: var(--accent-warm);
+  }
+  .contact-method{
+    margin: 1.5rem 0;
+  }
+  .contact-method .label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+    margin-bottom: 0.3rem;
+  }
+  .contact-method .value{
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+  .cta-button{
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+  }
+  .cta-button:hover{
+    background: var(--accent-warm);
+    transform: translateY(-2px);
+  }
+  footer{
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .footer-logo{
+    width: 80px;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+  footer p{
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+  }
+  footer .tagline{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--accent-warm);
+    margin-top: 0.5rem;
+  }
+</style>
+</head>
+<body>
 
-/* ---------- HERO ---------- */
-.hero{
-position: relative;
-padding: 6rem 6vw 5rem;
-overflow: hidden;
-border-bottom: 1px solid var(--line);
-text-align: center;
-}
-.hero-inner{
-<img src="logo_lobos.jpg" alt="Logo Programa Lobos" class="logo-img">
-max-width: 780px;
-margin: 0 auto;
-position: relative;
-z-index: 2;
-}
-.hero h1{
-font-size: clamp(2.6rem, 7vw, 4.6rem);
-line-height: 0.98;
-margin: 0.6rem 0 1.4rem;
-}
-.hero p.lede{
-font-size: 1.15rem;
-color: var(--ink-dim);
-max-width: 560px;
-margin: 0 auto;
-}
-.logo-img{
-width: 150px;
-height: auto;
-margin-bottom: 1.5rem;
-}
+<nav>
+  <div class="nav-content">
+    <a href="#" class="nav-logo">Programa Lobos</a>
+    <div class="nav-links">
+      <a href="#el-programa">El Programa</a>
+      <a href="#como-funciona">Cómo Funciona</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
 
-/* ---------- STAT BAR ---------- */
-.stats{
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-border-bottom: 1px solid var(--line);
-}
-.stat{
-padding: 2.2rem 2rem;
-border-left: 1px solid var(--line);
-}
-.stat:first-child{ border-left: none; }
-.stat .num{
-font-family: 'Fraunces', serif;
-font-size: 2.4rem;
-color: var(--moon);
-display:block;
-}
-.stat .lbl{
-color: var(--ink-dim);
-font-size: 0.9rem;
-margin-top: 0.3rem;
-}
-@media (max-width: 700px){
-.stats{ grid-template-columns: 1fr; }
-.stat{ border-left:none; border-top: 1px solid var(--line); }
-.stat:first-child{ border-top:none; }
-}
+<section class="hero">
+  <img src="logo_lobos.jpg" alt="Programa Lobos" class="hero-logo">
+  <span class="hero-eyebrow">General Cabrera, Córdoba</span>
+  <h1>Programa Lobos</h1>
+  <p class="hero-tagline">"Nadie está solo en la manada"</p>
+  <p>Un espacio donde hombres que atraviesan crisis personales — separaciones, violencia familiar, aislamiento — encuentran apoyo de otro hombre que ya pasó por algo similar. Sin diagnósticos, sin burocracia, sin stigma.</p>
+  <div class="hero-municipio">
+    Iniciativa Municipal de Prevención<br>
+    Área de Prevención y Convivencia | Centro de Monitoreo
+  </div>
+</section>
 
-/* ---------- SECTIONS ---------- */
-section.block{
-padding: 4.5rem 6vw;
-max-width: 920px;
-margin: 0 auto;
-border-bottom: 1px solid var(--line);
-}
-section.block h2{
-font-size: 1.9rem;
-margin: 0.5rem 0 1.4rem;
-}
-section.block p{
-color: var(--ink-dim);
-max-width: 700px;
-}
-section.block p + p{ margin-top: 1rem; }
+<section id="el-programa">
+  <span class="hero-eyebrow">Contexto</span>
+  <h2>Una Emergencia Silenciosa</h2>
+  <p>La Asociación Argentina de Salud Mental acaba de declarar la situación de suicidio en Argentina como <strong>emergencia sanitaria</strong>. La tasa de 11,8 suicidios cada 100.000 habitantes es la más alta de la historia.</p>
+  <div class="quote-block">
+    <p>"La Argentina registra una tasa de 11,8 suicidios cada 100.000 habitantes, la más alta de su historia, configurando una situación de gravedad sanitaria y social."</p>
+    <cite>— Asociación Argentina de Salud Mental, Agosto 2025</cite>
+  </div>
+  <p>En General Cabrera, desde el <strong>Centro de Monitoreo Municipal</strong> observamos regularmente intentos de suicidio y denuncias por violencia familiar donde los hombres quedan atrapados en el aislamiento, sin saber a dónde recurrir.</p>
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-number">~80%</span>
+      <span class="stat-label">de suicidios son masculinos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">1 de 3</span>
+      <span class="stat-label">hombres no tiene con quién hablar</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">0</span>
+      <span class="stat-label">programas de apoyo de par a par</span>
+    </div>
+  </div>
+</section>
 
-/* ---------- PATH DIAGRAM ---------- */
-.path{
-margin-top: 2.5rem;
-display: flex;
-flex-direction: column;
-gap: 0;
-}
-.path-step{
-display: grid;
-grid-template-columns: 32px 1fr;
-gap: 1.2rem;
-position: relative;
-padding-bottom: 2.2rem;
-}
-.path-step:last-child{ padding-bottom: 0; }
-.path-dot{
-width: 12px; height: 12px;
-border-radius: 50%;
-background: var(--moon);
-margin-top: 6px;
-position: relative;
-z-index: 2;
-}
-.path-step.alt .path-dot{ background: var(--clay); }
-.path-step:not(:last-child)::before{
-content:'';
-position:absolute;
-left: 5px;
-top: 18px;
-bottom: -4px;
-width: 2px;
-background: var(--line);
-}
-.path-step h3{
-font-family: 'IBM Plex Sans', sans-serif;
-font-weight: 600;
-font-size: 1.05rem;
-color: var(--ink);
-}
-.path-step p{ margin-top: 0.35rem; font-size: 0.96rem; }
+<section>
+  <span class="hero-eyebrow">La Propuesta</span>
+  <h2>Apoyo de Par a Par</h2>
+  <p>El Programa Lobos es una <strong>red de apoyo de hombre a hombre</strong>. No es terapia profesional, no es una guardia de emergencia. Es un espacio previo: alguien que escucha, que entiende porque ya pasó por algo similar, y que puede acompañar antes de que la crisis se desborde.</p>
+  <div class="cards">
+    <div class="card">
+      <h4>Escucha Sin Etiquetas</h4>
+      <p>Sin diagnósticos, sin informes psiquiátricos, sin sentirte enfermo. Solo un hombre que te escucha.</p>
+    </div>
+    <div class="card">
+      <h4>Experiencia Vivida</h4>
+      <p>Te acompaña alguien que atravesó una separación, violencia familiar o aislamiento y salió adelante.</p>
+    </div>
+    <div class="card">
+      <h4>Derivación Cuidada</h4>
+      <p>Si necesitás hospital, abogado o psicólogo, te ayudamos a acceder. No te dejamos solo.</p>
+    </div>
+    <div class="card">
+      <h4>Prevención Real</h4>
+      <p>Intervenimos antes de la crisis. Cuando todavía se puede contener, antes del desborde.</p>
+    </div>
+  </div>
+</section>
 
-/* ---------- CARDS ---------- */
-.cards{
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 1px;
-background: var(--line);
-margin-top: 2rem;
-border: 1px solid var(--line);
-}
-.card{
-background: var(--card);
-padding: 1.6rem 1.7rem;
-}
-.card h3{
-font-family: 'IBM Plex Mono', monospace;
-font-size: 0.78rem;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-color: var(--moon);
-font-weight: 500;
-margin-bottom: 0.6rem;
-}
-.card p{ color: var(--ink-dim); font-size: 0.95rem; margin: 0; }
-@media (max-width: 700px){ .cards{ grid-template-columns: 1fr; } }
+<section id="como-funciona">
+  <span class="hero-eyebrow">Implementación</span>
+  <h2>Cómo Funciona</h2>
+  <p>El Programa Lobos se integra al <strong>Centro de Monitoreo Municipal</strong>. No requiere infraestructura nueva ni presupuesto adicional.</p>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h4>Ingreso al Centro de Monitoreo</h4>
+        <p>El caso llega por llamado, WhatsApp o derivación interna. Es recepcionado por el personal del Centro.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h4>Primera Escucha</h4>
+        <p>El referente del programa realiza contacto inicial. Sin burocracia, sin diagnóstico: solo escucha.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h4>Encuentro de Pares</h4>
+        <p>Se coordina encuentro con un "par de apoyo" capacitado: café, caminata, llamada. Lo que prefiera la persona.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h4>Derivación si corresponde</h4>
+        <p>Hospital, policía, psicólogo, abogado municipal. Solo si la situación lo requiere.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Costo del Programa</h3>
+  <p><strong>$0 en infraestructura y personal.</strong> Se utiliza el Centro de Monitoreo existente y se coordina con recursos municipales disponibles.</p>
+</section>
 
-/* ---------- IMPACT ---------- */
-.impact{
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 1px;
-background: var(--line);
-border: 1px solid var(--line);
-margin-top: 2rem;
-}
-.impact div{
-background: var(--bg-alt);
-padding: 1.8rem;
-}
-.impact .eyebrow{ margin-bottom: 0.5rem; display:block; }
-.impact p{ margin:0; color: var(--ink-dim); font-size: 0.95rem; }
-@media (max-width: 700px){ .impact{ grid-template-columns: 1fr; } }
+<section id="equipo">
+  <span class="hero-eyebrow">Quienes Somos</span>
+  <h2>Equipo Municipal</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <h4>Yanina Palacios</h4>
+      <div class="role">Coordinadora</div>
+      <p>Área de Prevención y Convivencia<br>Municipalidad de General Cabrera</p>
+    </div>
+    <div class="team-member">
+      <h4>Gastón Spratt</h4>
+      <div class="role">Referente del Programa</div>
+      <p>Centro de Monitoreo Municipal<br>Primer contacto y coordinación</p>
+    </div>
+  </div>
+  <h3>Pares de Apoyo</h3>
+  <p>Hombres de la comunidad que atravesaron crisis similares, están estabilizados y reciben capacitación básica en escucha activa. Actúan de forma voluntaria.</p>
+</section>
 
-footer{
-padding: 3rem 6vw 4rem;
-color: var(--ink-dim);
-font-size: 0.85rem;
-max-width: 920px;
-margin: 0 auto;
-}
-footer .eyebrow{ display:block; margin-bottom: 0.8rem; }
+<section id="contacto" class="contact-section">
+  <span class="hero-eyebrow">Contacto</span>
+  <h2>¿Necesitás Hablar?</h2>
+  <p>Si estás atravesando una crisis personal, una separación, o sentís que te estás aislando, escribinos. Un par te va a responder.</p>
+  <div class="contact-box">
+    <h3>Centro de Monitoreo Municipal</h3>
+    <div class="contact-method">
+      <div class="label">WhatsApp</div>
+      <div class="value">[Número a definir]</div>
+    </div>
+    <div class="contact-method">
+      <div class="label">Email</div>
+      <div class="value">programalobos@generalcabrera.gob.ar</div>
+    </div>
+    <div class="contact-method">
+      <div class="label">Horario de Atención</div>
+      <div class="value">Lunes a Viernes, 8:00 a 16:00</div>
+    </div>
+    <a href="#" class="cta-button">Contactar Ahora</a>
+  </div>
+  <div class="quote-block" style="margin-top: 2rem;">
+    <p>"Si estás en riesgo inmediato o tenés pensamientos suicidas concretos, llamá al 107 o al 135. Nosotros somos el paso anterior, no la emergencia."</p>
+  </div>
+</section>
+
+<footer>
+  <p>Programa Lobos — General Cabrera, Córdoba</p>
+  <p class="tagline">Nadie está solo en la manada.</p>
+  <p style="margin-top: 1rem; font-size: 0.75rem;">
+    Iniciativa Municipal de Prevención | Área de Prevención y Convivencia
+  </p>
+</footer>
 
 </body>
 </html>
