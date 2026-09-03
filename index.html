@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Programa Lobos | General Cabrera</title>
+<title>Gastón Spratt | Autor</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Fraunces:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -87,6 +87,7 @@
     letter-spacing: 0.15em;
     color: var(--accent);
     margin-bottom: 1rem;
+    display: block;
   }
   .hero h1{
     font-family: 'Fraunces', serif;
@@ -107,16 +108,6 @@
     font-size: 1.1rem;
     line-height: 1.7;
     margin: 0 auto;
-  }
-  .hero-municipio{
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--line);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--ink-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
   }
   section{
     padding: 5rem 2rem;
@@ -148,30 +139,6 @@
     margin-bottom: 0.8rem;
     line-height: 1.6;
   }
-  .stats{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--line);
-    margin: 2rem 0;
-  }
-  .stat{
-    background: var(--bg-alt);
-    padding: 1.5rem;
-    text-align: center;
-  }
-  .stat-number{
-    font-family: 'Fraunces', serif;
-    font-size: 2.2rem;
-    color: var(--accent);
-    display: block;
-  }
-  .stat-label{
-    font-size: 0.85rem;
-    color: var(--ink-dim);
-    margin-top: 0.5rem;
-  }
-  @media (max-width: 600px){ .stats{ grid-template-columns: 1fr; } }
   
   .quote-block{
     background: var(--bg-alt);
@@ -194,35 +161,31 @@
     color: var(--ink-dim);
     font-family: 'IBM Plex Mono', monospace;
   }
-  .team-grid{
+  
+  .cards{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1px;
+    background: var(--line);
     margin: 2rem 0;
   }
-  .team-member{
+  .card{
     background: var(--card);
     padding: 1.5rem;
-    border-radius: 6px;
   }
-  .team-member h4{
-    color: var(--accent-warm);
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
-  }
-  .team-member .role{
+  .card h4{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--ink-dim);
+    letter-spacing: 0.08em;
+    color: var(--accent);
     margin-bottom: 0.8rem;
   }
-  .team-member p{
-    font-size: 0.9rem;
+  .card p{
     margin: 0;
+    font-size: 0.95rem;
   }
-  @media (max-width: 600px){ .team-grid{ grid-template-columns: 1fr; } }
+  @media (max-width: 600px){ .cards{ grid-template-columns: 1fr; } }
   
   .process-steps{ margin: 2rem 0; }
   .step{
@@ -265,31 +228,7 @@
     margin: 0;
     font-size: 0.95rem;
   }
-  .cards{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--line);
-    margin: 2rem 0;
-  }
-  .card{
-    background: var(--card);
-    padding: 1.5rem;
-  }
-  .card h4{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin-bottom: 0.8rem;
-  }
-  .card p{
-    margin: 0;
-    font-size: 0.95rem;
-  }
-  @media (max-width: 600px){ .cards{ grid-template-columns: 1fr; } }
-  
+
   .comparison{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -315,96 +254,7 @@
     font-size: 0.95rem;
   }
   @media (max-width: 600px){ .comparison{ grid-template-columns: 1fr; } }
-  
-  .contact-form{
-    background: var(--card);
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 2rem;
-    text-align: left;
-  }
-  .form-group{
-    margin-bottom: 1.5rem;
-  }
-  .form-group label{
-    display: block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-  .form-group input,
-  .form-group textarea,
-  .form-group select{
-    width: 100%;
-    padding: 0.8rem;
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    color: var(--ink);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 1rem;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus{
-    outline: none;
-    border-color: var(--accent);
-  }
-  .form-group textarea{
-    min-height: 120px;
-    resize: vertical;
-  }
-  .form-note{
-    font-size: 0.85rem;
-    color: var(--ink-dim);
-    margin-top: 0.5rem;
-  }
-  .submit-btn{
-    width: 100%;
-    padding: 1rem;
-    background: var(--accent);
-    color: var(--bg);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  .submit-btn:hover{
-    background: var(--accent-warm);
-  }
-  
-  .contact-section{
-    background: var(--bg-alt);
-    text-align: center;
-  }
-  .contact-info{
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--line);
-  }
-  .contact-method{
-    margin: 1rem 0;
-  }
-  .contact-method .label{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-dim);
-    margin-bottom: 0.3rem;
-  }
-  .contact-method .value{
-    font-size: 1rem;
-    color: var(--ink);
-  }
+
   footer{
     padding: 3rem 2rem;
     text-align: center;
@@ -426,247 +276,111 @@
 
 <nav>
   <div class="nav-content">
-    <a href="#" class="nav-logo">Programa Lobos</a>
+    <a href="#" class="nav-logo">Fragmento Cero</a>
     <div class="nav-links">
-      <a href="#el-programa">El Programa</a>
-      <a href="#como-funciona">Cómo Funciona</a>
-      <a href="#equipo">Equipo</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#tienda-leviatan">Tienda</a>
+      <a href="#parkinson">Parkinson</a>
+      <a href="#programa-lobos">Lobos</a>
     </div>
   </div>
 </nav>
 
 <section class="hero">
-  <img src="logo_lobos.jpg" alt="Programa Lobos" class="hero-logo">
-  <span class="hero-eyebrow">General Cabrera, Córdoba</span>
-  <h1>Programa Lobos</h1>
-  <p class="hero-tagline">"Nadie está solo en la manada"</p>
-  <p>Un espacio donde hombres que atraviesan crisis personales — separaciones, violencia familiar, aislamiento — encuentran apoyo de otro hombre que ya pasó por algo similar. Sin diagnósticos, sin burocracia, sin estigma.</p>
-  <div class="hero-municipio">
-    Iniciativa Municipal de Prevención<br>
-    Área de Prevención y Convivencia | Centro de Monitoreo
-  </div>
+  <span class="hero-eyebrow">Bitácora y Universo</span>
+  <h1>Fragmento Cero</h1>
+  <p class="hero-tagline">El anclaje principal.</p>
+  <p>Desde el interior de La Eleonora hasta las calles de General Cabrera. Aquí conviven las historias que rozan el abismo, la lucha personal y las redes que tendemos para no caer.</p>
 </section>
 
-<section id="el-programa">
-  <span class="hero-eyebrow">Contexto</span>
-  <h2>Una Emergencia Silenciosa</h2>
+<!-- SECCIÓN: TIENDA LEVIATÁN -->
+<section id="tienda-leviatan">
+  <span class="hero-eyebrow">Librería de Autor</span>
+  <h2>Tienda Leviatán</h2>
   
-  <p>La Asociación Argentina de Salud Mental acaba de declarar la situación de suicidio en Argentina como <strong>emergencia sanitaria</strong>. La tasa de 11,8 suicidios cada 100.000 habitantes es la más alta de la historia.</p>
-  
-  <div class="quote-block">
-    <p>"La Argentina registra una tasa de 11,8 suicidios cada 100.000 habitantes, la más alta de su historia, configurando una situación de gravedad sanitaria y social."</p>
-    <cite>— Asociación Argentina de Salud Mental, Agosto 2025</cite>
-  </div>
-  
-  <p>En General Cabrera, desde el <strong>Centro de Monitoreo Municipal</strong> observamos regularmente:</p>
-  <ul>
-    <li>Intentos de suicidio</li>
-    <li>Denuncias por violencia familiar</li>
-    <li>Situaciones de crisis masculina que requieren contención</li>
-  </ul>
-  
-  <p>Estos casos frecuentemente <strong>no acceden a los servicios tradicionales</strong> de salud mental por estigma, burocracia o falta de empatía con la experiencia masculina de la crisis.</p>
-  
-  <div class="stats">
-    <div class="stat">
-      <span class="stat-number">~80%</span>
-      <span class="stat-label">de suicidios son masculinos</span>
-    </div>
-    <div class="stat">
-      <span class="stat-number">1 de 3</span>
-      <span class="stat-label">hombres no tiene con quién hablar</span>
-    </div>
-    <div class="stat">
-      <span class="stat-number">0</span>
-      <span class="stat-label">programas de apoyo de par a par</span>
-    </div>
-  </div>
-  
-  <h3>El Camino al Aislamiento</h3>
-  
-  <div class="comparison">
-    <div class="comparison-box solo">
-      <h4>Sin apoyo de par</h4>
-      <p>Aislamiento progresivo. Acumulación de angustia. Idas a la comisaría. Denuncias. Internaciones psiquiátricas forzadas. Pérdida de contacto con hijos. Pensamientos suicidas.</p>
-    </div>
-    <div class="comparison-box con-apoyo">
-      <h4>Con contención temprana</h4>
-      <p>Alguien que escucha sin juzgar. Validación de la situación. Contención emocional. Derivación a profesionales si es necesario. Prevención del desborde. Reconstrucción gradual.</p>
-    </div>
-  </div>
-  
-  <h3>La Brecha</h3>
-  <p>Los servicios tradicionales de salud mental existen, pero muchos hombres no acceden por:</p>
-  <ul>
-    <li>Estigma asociado a la "debilidad" de pedir ayuda</li>
-    <li>Burocracia de los servicios institucionales</li>
-    <li>Sensación de que los profesionales no comprenden la experiencia masculina de la crisis</li>
-    <li>Falta de redes de contención durante separaciones de pareja</li>
-  </ul>
-</section>
-
-<section>
-  <span class="hero-eyebrow">La Propuesta</span>
-  <h2>Apoyo de Par a Par</h2>
-  
-  <p>El Programa Lobos es una <strong>red de apoyo de hombre a hombre</strong>. No es terapia profesional, no es una guardia de emergencia. Es un espacio previo: alguien que escucha, que entiende porque ya pasó por algo similar, y que puede acompañar antes de que la crisis se desborde.</p>
+  <p>El puerto de anclaje para todas mis obras. Acá podés conseguir las ediciones físicas y digitales, apoyar mi trabajo independiente y asegurarte un pasaje directo a la nave Eleonora.</p>
   
   <div class="cards">
     <div class="card">
-      <h4>Escucha Sin Etiquetas</h4>
-      <p>Sin diagnósticos, sin informes psiquiátricos, sin sentirte enfermo. Solo un hombre que te escucha.</p>
+      <h4>Universo Neuma</h4>
+      <p>Ediciones definitivas, mapas y material expandido de la saga. Sumergite en el worldbuilding completo.</p>
     </div>
     <div class="card">
-      <h4>Experiencia Vivida</h4>
-      <p>Te acompaña alguien que atravesó una separación, violencia familiar o aislamiento y salió adelante.</p>
+      <h4>Ficción Breve</h4>
+      <p>Antologías y relatos sueltos. Historias crudas, reales y otras que exploran los límites de nuestra especie.</p>
     </div>
     <div class="card">
-      <h4>Derivación Cuidada</h4>
-      <p>Si necesitás hospital, abogado o psicólogo, te ayudamos a acceder. No te dejamos solo.</p>
+      <h4>Merchandising Literario</h4>
+      <p>Libretas de notas, bitácoras de escritura y arte conceptual de las novelas.</p>
     </div>
     <div class="card">
-      <h4>Prevención Real</h4>
-      <p>Intervenimos antes de la crisis. Cuando todavía se puede contener, antes del desborde.</p>
+      <h4>Mecenazgo directo</h4>
+      <p>Apoyá mi carrera de forma directa para que pueda seguir escribiendo con libertad absoluta.</p>
     </div>
   </div>
 </section>
 
-<section id="como-funciona">
-  <span class="hero-eyebrow">Implementación</span>
-  <h2>Cómo Funciona</h2>
+<!-- SECCIÓN: PARKINSON -->
+<section id="parkinson">
+  <span class="hero-eyebrow">Bitácora Personal</span>
+  <h2>Parkinson</h2>
   
-  <p>El Programa Lobos se integra al <strong>Centro de Monitoreo Municipal</strong>. No requiere infraestructura nueva ni presupuesto adicional.</p>
+  <p>Escribir es un acto físico, y el cuerpo también cuenta su propia historia. En este espacio comparto reflexiones, crónicas y artículos sobre el proceso de convivir con el Parkinson sin dejar de crear.</p>
+  
+  <div class="quote-block">
+    <p>"La literatura no solo está en la mente; a veces se abre paso a través de la resistencia del propio cuerpo."</p>
+  </div>
   
   <div class="process-steps">
     <div class="step">
-      <div class="step-number">1</div>
+      <div class="step-number">I</div>
       <div class="step-content">
-        <h4>Completás el formulario</h4>
-        <p>Entrás a esta web y completás el formulario de contacto. Contás brevemente qué te pasa.</p>
+        <h4><a href="#" style="color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent);">Crónicas de un temblor</a></h4>
+        <p>Textos breves sobre el día a día, la escritura y la adaptación constante.</p>
       </div>
     </div>
     <div class="step">
-      <div class="step-number">2</div>
+      <div class="step-number">II</div>
       <div class="step-content">
-        <h4>Te contactamos</h4>
-        <p>El referente del programa te escribe o llama. Sin burocracia, sin diagnóstico: solo escucha.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-number">3</div>
-      <div class="step-content">
-        <h4>Encuentro de pares</h4>
-        <p>Coordinamos un encuentro con un "par de apoyo": café, caminata, llamada. Lo que prefieras.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-number">4</div>
-      <div class="step-content">
-        <h4>Derivación si corresponde</h4>
-        <p>Hospital, policía, psicólogo, abogado municipal. Solo si la situación lo requiere.</p>
+        <h4><a href="#" style="color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent);">Recursos y Enlaces</a></h4>
+        <p>Información valiosa y lecturas recomendadas que fui recopilando en este camino.</p>
       </div>
     </div>
   </div>
-  
-  <h3>Costo del Programa</h3>
-  <p><strong>$0 en infraestructura y personal.</strong> Se utiliza el Centro de Monitoreo existente y se coordina con recursos municipales disponibles. Posibles costos mínimos opcionales: capacitación de pares ($50.000-$100.000) y difusión ($30.000-$50.000).</p>
 </section>
 
-<section id="equipo">
-  <span class="hero-eyebrow">Quienes Somos</span>
-  <h2>Equipo Municipal</h2>
+<!-- SECCIÓN: PROGRAMA LOBOS -->
+<section id="programa-lobos">
+  <span class="hero-eyebrow">Iniciativa Social | General Cabrera</span>
+  <h2>Programa: Lobos</h2>
   
-  <div class="team-grid">
-    <div class="team-member">
-      <h4>Yanina Palacios</h4>
-      <div class="role">Coordinadora</div>
-      <p>Área de Prevención y Convivencia<br>Municipalidad de General Cabrera</p>
-    </div>
-    <div class="team-member">
-  <h4>Gastón Spratt</h4>
-  <div class="role">Creador del Programa y Referente</div>
-  <p>Centro de Monitoreo Municipal<br>Primer contacto y coordinación</p>
-</div>
-</div>
-  
-  <h3>Pares de Apoyo</h3>
-  <p>Hombres de la comunidad que atravesaron crisis similares, están estabilizados y reciben capacitación básica en escucha activa. Actúan de forma voluntaria.</p>
-</section>
+  <p>Una red de apoyo de hombre a hombre integrada al Centro de Monitoreo Municipal. Un espacio de contención para hombres que atraviesan crisis personales, separaciones, o aislamiento, sin diagnósticos ni burocracia.</p>
 
-<section id="contacto" class="contact-section">
-  <span class="hero-eyebrow">Contacto</span>
-  <h2>¿Necesitás Hablar?</h2>
-  <p>Completá el formulario. Un par del Programa Lobos te va a contactar. Sin costo, sin compromiso, sin burocracia.</p>
+  <div class="quote-block">
+    <p>"Nadie está solo en la manada."</p>
+  </div>
   
-  <form class="contact-form" action="#" method="POST">
-    <div class="form-group">
-      <label for="nombre">Nombre (puede ser seudónimo)</label>
-      <input type="text" id="nombre" name="nombre" required>
+  <div class="comparison">
+    <div class="comparison-box solo">
+      <h4>El Aislamiento</h4>
+      <p>Acumulación de angustia. Pérdida de contacto con hijos. Muchos no acceden a los servicios tradicionales por estigma, burocracia o falta de empatía con la experiencia masculina.</p>
     </div>
-    
-    <div class="form-group">
-      <label for="contacto">Email o teléfono</label>
-      <input type="text" id="contacto" name="contacto" required>
-      <p class="form-note">Solo para que podamos contactarte. No se comparte con nadie.</p>
-    </div>
-    
-    <div class="form-group">
-      <label for="edad">Rango de edad</label>
-      <select id="edad" name="edad">
-        <option value="">Seleccionar...</option>
-        <option value="18-25">18-25 años</option>
-        <option value="26-35">26-35 años</option>
-        <option value="36-45">36-45 años</option>
-        <option value="46-55">46-55 años</option>
-        <option value="56+">56 años o más</option>
-      </select>
-    </div>
-    
-    <div class="form-group">
-      <label for="situacion">¿Qué te está pasando?</label>
-      <textarea id="situacion" name="situacion" placeholder="Contanos brevemente tu situación: separación, crisis personal, aislamiento, violencia familiar... lo que quieras compartir."></textarea>
-      <p class="form-note">No hay respuesta correcta. Escribí lo que sientas.</p>
-    </div>
-    
-    <div class="form-group">
-      <label for="urgencia">¿Cómo definirías tu situación?</label>
-      <select id="urgencia" name="urgencia">
-        <option value="">Seleccionar...</option>
-        <option value="pre-crisis">Necesito hablar con alguien (prevención)</option>
-        <option value="crisis">Estoy pasando un momento difícil</option>
-        <option value="urgente">Necesito ayuda urgente</option>
-      </select>
-    </div>
-    
-    <button type="submit" class="submit-btn">Enviar y solicitar contacto</button>
-  </form>
-  
-  <div class="contact-info">
-    <div class="contact-method">
-      <div class="label">Centro de Monitoreo Municipal</div>
-      <div class="value">General Cabrera, Córdoba</div>
-    </div>
-    <div class="contact-method">
-      <div class="label">Horario de respuesta</div>
-      <div class="value">Lunes a Viernes, 8:00 a 16:00</div>
+    <div class="comparison-box con-apoyo">
+      <h4>La Manada</h4>
+      <p>Apoyo de par a par. Alguien que escucha sin juzgar porque ya pasó por una experiencia similar. Intervención temprana y contención real antes del desborde.</p>
     </div>
   </div>
   
-  <div class="quote-block" style="margin-top: 2rem;">
-    <p>"Si estás en riesgo inmediato o tenés pensamientos suicidas concretos, llamá al <strong>107</strong> o al <strong>135</strong>. Nosotros somos el paso anterior, no la emergencia."</p>
-  </div>
+  <p style="text-align: center; margin-top: 2rem;">
+    <a href="lobos.html" style="display: inline-block; padding: 1rem 2rem; background: var(--accent); color: var(--bg); font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; border-radius: 4px;">Solicitar Contacto / Más Info</a>
+  </p>
 </section>
 
 <footer>
-  <p>Programa Lobos — General Cabrera, Córdoba</p>
-  <p class="tagline">Nadie está solo en la manada.</p>
+  <p>Fragmento Cero — Gastón Spratt</p>
+  <p class="tagline">La escritura como trinchera.</p>
   <p style="margin-top: 1rem; font-size: 0.75rem;">
-    <a href="manifiesto.html" style="color: var(--accent); text-decoration: none;">Leer el Manifiesto</a> | 
-    <a href="#contacto" style="color: var(--accent); text-decoration: none;">Contacto</a>
-  </p>
-  <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--ink-dim);">
-    Iniciativa Municipal de Prevención | Área de Prevención y Convivencia
+    <a href="#" style="color: var(--accent); text-decoration: none;">Bitácora</a> | 
+    <a href="#" style="color: var(--accent); text-decoration: none;">Contacto</a>
   </p>
 </footer>
 
